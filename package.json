@@ -1,0 +1,36 @@
+{
+  "name": "workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --watch ./src/server -e ts --exec \"ts-node --project ./tsconfig.server.json ./src/server/index.ts\"",
+    "build:server": "webpack ./src/server/webpack.config.js --output-path ./build/server -p"
+  },
+  "author": "Ashok Vishwakarma",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.8.14",
+    "dotenv": "^8.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.5.7",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/koa-router": "^7.0.40",
+    "@types/koa-static": "^4.0.1",
+    "@types/mongoose": "^5.5.0",
+    "@types/node": "^12.0.0",
+    "@types/uuid": "^3.4.4",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
