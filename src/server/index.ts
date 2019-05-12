@@ -79,6 +79,11 @@ mongoose.connection.on('error', error => {
 });
 
 /**
+ * Setting mongo to use CreateIndex
+ */
+mongoose.set('useCreateIndex', true);
+
+/**
  * app
  * 
  * Koa app

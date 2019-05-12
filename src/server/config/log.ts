@@ -1,5 +1,23 @@
+/**
+ * log
+ * 
+ * log config
+ */
+
+/**
+ * env
+ * 
+ * env utility
+ */
 import env from '../utility/env';
+
+/**
+ * IndexSignature
+ * 
+ * Type interface for IndexSignature
+ */
 import { IndexSignature } from '../../types';
+
 
 const log: IndexSignature = {
   PATH: env('LOG_PATH', ''),

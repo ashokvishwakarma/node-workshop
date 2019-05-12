@@ -6,3 +6,4 @@ logs/*
 !build/.gitkeep
 !**/**/.gitkeep
 .env
+.package-lock.json

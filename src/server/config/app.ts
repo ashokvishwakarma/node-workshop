@@ -1,5 +1,21 @@
+/**
+ * app
+ * 
+ * app config
+ */
+
+/**
+ * env
+ * 
+ * env utility
+ */
 import env from '../utility/env';
 
+/**
+ * IndexSignature
+ * 
+ * Type interface for IndexSignature
+ */
 import { IndexSignature } from '../../types';
 
 const app: IndexSignature = {
