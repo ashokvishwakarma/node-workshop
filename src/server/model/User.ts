@@ -1,13 +1,15 @@
 /**
  * UserModel
- * 
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * Mongoose model for users collection
  */
 
 /**
  * Schema, model
  * 
- * from mongoose
+ * from mongoose module
+ * 
+ * Read more http://mongoosejs.com/
  */
 import { Schema, model} from 'mongoose';
 

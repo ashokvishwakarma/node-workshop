@@ -1,3 +1,5 @@
+import { IndexSignature } from "../../types";
+
 interface Response {
   type: string;
   code: number;
@@ -6,7 +8,7 @@ interface Response {
 }
 
 
-const responses: {[key: number]: Response} = {
+const responses: IndexSignature<Response> = {
   200: {
     type: 'success',
     code: 200,

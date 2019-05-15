@@ -1,6 +1,6 @@
 /**
  * app
- * 
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * app config
  */
 
@@ -18,7 +18,7 @@ import env from '../utility/env';
  */
 import { IndexSignature } from '../../types';
 
-const app: IndexSignature = {
+const app: IndexSignature<any> = {
   ENV: env('ENV', 'development'),
   NAME: env('NAME', 'Workshop'),
   VERSION: env('VERSION', '1.0.0'),

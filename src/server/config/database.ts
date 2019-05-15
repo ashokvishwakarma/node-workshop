@@ -1,6 +1,6 @@
 /**
  * database
- * 
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * database config
  */
 
@@ -18,7 +18,7 @@ import env from '../utility/env';
  */
 import { IndexSignature } from '../../types';
 
-const database: IndexSignature = {
+const database: IndexSignature<any> = {
   HOST: env('DB_HOST', '127.0.0.1'),
   PORT: env('DB_PORT', 27017),
   USER: env('DB_USER', ''),

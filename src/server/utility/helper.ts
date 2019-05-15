@@ -1,31 +1,49 @@
 /**
+ * helpers
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
+ * Some helper utlity methods
+ */
+
+/**
  * UUIDV1
  * 
  * UUID V1
+ * 
+ * Read more https://github.com/kelektiv/node-uuid#readme
  */
 import * as UUIDV1 from 'uuid/v1';
 
 /**
- * createHmac
+ * createHmac, randomBytes
  *
- * method createHmac from crypto
+ * method createHmac and randomBytes from crypto module
  */
 import { createHmac, randomBytes } from 'crypto';
 
 /**
  * existsSync
  * 
- * method to check synchronously if given path (file/folder) exists
+ * method existsSync from fs module
+ * check synchronously if given path (file/folder) exists
  */
 import { existsSync } from 'fs';
 
 /**
  * compose
+ * 
+ * Utility to compose middleware
+ * from an array or multile middleares
+ * 
+ * Read more https://github.com/koajs/compose#readme
  */
 import * as compose from 'koa-compose';
 
 /**
  * Router
+ * 
+ * Routing midlleware for Koa
+ * 
+ * Read more https://www.npmjs.com/package/koa-router
  */
 import * as Router from 'koa-router';
 
@@ -50,6 +68,7 @@ export const elapseTime = (start: any) => {
 
 /**
  * to
+ * 
  * error handler for await
  * 
  * @uses const [error, data] = await to(Promise)

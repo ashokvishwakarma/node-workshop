@@ -1,20 +1,20 @@
 /**
  * Logger
- *
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * default logger utility for all applications
  */
 
 /**
  * join
  *
- * join method from default node module path
+ * Join method from path module
  */
 import { join } from 'path';
 
 /**
  * writeFile
  * 
- * writeFile from fs module
+ * writeFile method from fs module
  */
 import { writeFile } from 'fs';
 
@@ -33,6 +33,15 @@ import * as dayjs from 'dayjs';
  */
 import config from '../config';
 
+/**
+ * IndexSignature
+ * 
+ * Type definition to support
+ * access of object keys abd values
+ * using bracket notation
+ * 
+ * Read more https://basarat.gitbooks.io/typescript/docs/types/index-signatures.html
+ */
 import { IndexSignature } from '../../types';
 
 /**
@@ -58,7 +67,7 @@ const ERROR: string = 'ERROR';
 /**
  * log allowed map
  */
-const _allowed_log_types: any = {
+const _allowed_log_types: IndexSignature<any> = {
   'DEBUG': [DEBUG, INFO, WARNING, ERROR],
   'INFO': [INFO, WARNING, ERROR],
   'WARNING': [WARNING, ERROR],
@@ -70,10 +79,12 @@ const _allowed_log_types: any = {
  *
  * Logger utlity class
  */
-class Logger implements IndexSignature {
+class Logger implements IndexSignature<any> {
+  
   [index: string]: any;
-
+  
   private _level: string;
+  
   /**
    * constructor
    *

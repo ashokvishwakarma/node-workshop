@@ -1,6 +1,6 @@
 /**
- * jw
- * 
+ * jwt
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * jwt config
  */
 
@@ -18,7 +18,7 @@ import env from '../utility/env';
  */
 import { IndexSignature } from '../../types';
 
-const jwt: IndexSignature = {
+const jwt: IndexSignature<string> = {
   PRIVATE_KEY: env('JWT_PRIVATE_KEY', ''),
   PUBLIC_KEY: env('JWT_PUBLIC_KEY', ''),
   EXPIRY: env('JWT_EXPIRY', '2h'),

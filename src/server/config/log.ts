@@ -1,6 +1,6 @@
 /**
  * log
- * 
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * log config
  */
 
@@ -19,7 +19,7 @@ import env from '../utility/env';
 import { IndexSignature } from '../../types';
 
 
-const log: IndexSignature = {
+const log: IndexSignature<string> = {
   PATH: env('LOG_PATH', ''),
   LEVEL: env('LOG_LEVEL', 'DEBUG'),
   FILE_NAME_FORMAT: env('LOG_FILE_NAME_FORMAT', 'YYY-MM-DD')

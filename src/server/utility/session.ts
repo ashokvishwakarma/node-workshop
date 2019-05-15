@@ -1,6 +1,6 @@
 /**
  * session
- * 
+ * @author Ashok Vishwakarma <akvlko@gmail.com>
  * Session utility using JWT
  */
 
