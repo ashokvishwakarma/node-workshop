@@ -12,6 +12,8 @@
  */
 import * as Koa from 'koa';
 
+import * as body from 'koa-body';
+
 /**
  * mongoose
  * 
@@ -92,6 +94,7 @@ const app: Koa = new Koa();
 
 app
   .use(response)
+  .use(body())
   .use(routes);
 
 if(config.app.PROTOCOL.toLowerCase() === 'https' && config.app.SSL_CERT !== '' && config.app.SSL_KEY !== '') {

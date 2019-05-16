@@ -5,3 +5,5 @@ export const NAME_REQUIRED: string = 'Name is required.';
 export const SKU_REQUIRED: string = 'Product SKU is required.';
 
 export const NAME_UNIQUE: string = 'Name must be unique.';
+
+export const INVALID_LOGIN: string = 'Invalid login details.';

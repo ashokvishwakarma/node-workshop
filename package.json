@@ -1,5 +1,5 @@
 {
-  "name": "workshop",
+  "name": "node-workshop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,13 +8,23 @@
     "server": "nodemon --watch ./src/server -e ts --exec \"ts-node --project ./tsconfig.server.json ./src/server/index.ts\"",
     "build:server": "webpack --config ./webpack.server.js --output-path ./build/server -p"
   },
-  "author": "Ashok Vishwakarma",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashokvishwakarma/node-workshop.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashokvishwakarma/node-workshop/issues"
+  },
+  "homepage": "https://github.com/ashokvishwakarma/node-workshop#readme",
   "dependencies": {
     "dayjs": "^1.8.14",
     "dotenv": "^8.0.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.5.7",
     "uuid": "^3.3.2"

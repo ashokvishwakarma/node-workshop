@@ -18,6 +18,9 @@ import { combineRoutes } from '../utility/helper';
  */
 import user from './user';
 
+import auth from './auth';
+
 export default combineRoutes([
-  user
+  user,
+  auth
 ]);

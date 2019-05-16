@@ -110,6 +110,7 @@ export default async (ctx: Context, next: Function): Promise<any> => {
     logRequest(start, ctx);
 
   } catch (err) {
+    console.log(err);
     logger.error(err.message);
     throw new Error(err);
   }

@@ -74,7 +74,7 @@ export const elapseTime = (start: any) => {
  * @uses const [error, data] = await to(Promise)
  * @param {*} promise 
  */
-export const to = async (promise: Promise<any>): Promise<any> => {
+export const to = async (promise: Promise<any>): Promise<Array<any>> => {
   return promise.then(data => [null, data]).catch(err => [err, null]);
 }
 
@@ -96,7 +96,7 @@ export const uuid = (): string => {
  * sha512 HAMC string encryption
  */
 export const encrypt = (password: string) => {
-  const hash = createHmac('sha512', config.app.SCERET);
+  const hash = createHmac('sha512', 'SomeKey');
   hash.update(password);
   return hash.digest('hex');
 };
