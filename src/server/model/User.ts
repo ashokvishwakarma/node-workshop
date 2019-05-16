@@ -33,7 +33,6 @@ import { validateEmail } from '../utility/helper';
  * Mongoose schema for users collection
  */
 const UserSchema: Schema = new Schema({
-  _id: String,
   name: {
     type: String,
     required: [true, message.NAME_REQUIRED]
@@ -47,9 +46,10 @@ const UserSchema: Schema = new Schema({
       message: (props: any) => `${props.value} is not a valid email.`
     }
   },
-  passowrd: {
+  password: {
     type: String,
-    minlength: 6
+    minlength: 6,
+    select: false
   },
   avatar: String,
   birtday: Date,

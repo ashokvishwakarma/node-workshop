@@ -24,7 +24,22 @@ class AuthController {
   }
 
   async register(ctx: Context) {
-    console.log(ctx.request);
+    ctx.request.body.password = encrypt(ctx.request.body.password);
+
+    const [error, _user] = await to(User.create(ctx.request.body));
+
+    if(error) {
+      return ctx.body = {
+        type: 'error',
+        message: error.message
+      }
+    }
+
+    ctx.body = {
+      type: 'success',
+      message: 'User created successfully.',
+      data: _user
+    }
   }
 }
 

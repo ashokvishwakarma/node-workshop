@@ -18,6 +18,8 @@ import { Context } from "koa";
  */
 import User from '../model/User';
 
+import { to } from "../utility/helper";
+
 class UserController {
   /**
    * all
@@ -27,12 +29,19 @@ class UserController {
    * return all the users from database
    */
   async all(ctx: Context): Promise<any> {
-    // const users = await User.find({}).exec();
-    // ctx.body = users;
+    const [error, users] = await to(User.find({}).exec());
 
-    ctx.body = [{
-      name: 'Ashok'
-    }];
+    if(error) {
+      return ctx.body = {
+        type: 'error',
+        message: error.message
+      }
+    }
+
+    ctx.body = {
+      type: 'success',
+      data: users
+    }
   }
 }
 
