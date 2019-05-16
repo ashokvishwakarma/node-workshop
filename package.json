@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run front\"",
     "server": "nodemon --watch ./src/server -e ts --exec \"ts-node --project ./tsconfig.server.json ./src/server/index.ts\"",
-    "build:server": "webpack --config ./webpack.server.js --output-path ./build/server -p"
+    "front": "preact watch --src ./src/front/index.ts --port 4001 --host 0.0.0.0",
+    "build:server": "webpack --config ./webpack.server.js --output-path ./build/server -p",
+    "build:front": "preact build --src ./src/front/index.ts --dest ./build/front --template ./src/front/index.html -p --no-service-worker true"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,9 @@
     "koa-body": "^4.1.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.5.7",
+    "preact": "^8.4.2",
+    "preact-router": "^2.6.1",
+    "redux-zero": "^5.0.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -38,12 +44,14 @@
     "@types/node": "^12.0.0",
     "@types/uuid": "^3.4.4",
     "concurrently": "^4.1.0",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
+    "preact-cli": "^3.0.0-rc.1",
+    "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.0",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5",
     "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2",
     "webpack-node-externals": "^1.7.2"
   }
 }
