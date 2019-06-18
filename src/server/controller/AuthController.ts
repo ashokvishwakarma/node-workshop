@@ -14,13 +14,33 @@ class AuthController {
       password: encrypt(password)
     }).exec());
 
-    if(!_user) {
+    if(!_user || error) {
       ctx.body = {
         type: 'error',
         message: message.INVALID_LOGIN
       }
     }
-    
+
+    const [_error, _token] = await to(session.set({
+      id: _user._id,
+      name: _user.name,
+      email: _user.email,
+      created_at: _user.created_at
+    }));
+
+    if(_error) {
+      return  ctx.body = {
+        type: 'error',
+        message: 'Something went worng!'
+      }
+    }
+
+    ctx.set('TOKEN', _token);
+    ctx.body = {
+      type: 'success',
+      message: 'Login successful.'
+    }
+
   }
 
   async register(ctx: Context) {

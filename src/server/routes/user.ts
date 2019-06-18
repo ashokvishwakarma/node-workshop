@@ -14,6 +14,8 @@ import * as Router from 'koa-router';
  */
 import UserController from '../controller/UserController';
 
+import auth from '../middleware/auth';
+
 /**
  * user
  * 
@@ -28,6 +30,7 @@ const user: Router = new Router({
 });
 
 user
-  .get('/', UserController.all);
+  .get('/', auth, UserController.all) // /user
+  .post('/', UserController.save);
 
 export default user;

@@ -41,10 +41,10 @@ const UserSchema: Schema = new Schema({
     type: String,
     required: [true, message.EMAIL_REQUIRED],
     unique: true,
-    validate: {
-      validator: validateEmail,
-      message: (props: any) => `${props.value} is not a valid email.`
-    }
+    // validate: {
+    //   validator: validateEmail,
+    //   message: (props: any) => `${props.value} is not a valid email.`
+    // }
   },
   password: {
     type: String,

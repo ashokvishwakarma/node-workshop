@@ -18,7 +18,7 @@ import { Context } from "koa";
  */
 import User from '../model/User';
 
-import { to } from "../utility/helper";
+import { to, encrypt } from "../utility/helper";
 
 class UserController {
   /**
@@ -29,7 +29,14 @@ class UserController {
    * return all the users from database
    */
   async all(ctx: Context): Promise<any> {
-    const [error, users] = await to(User.find({}).exec());
+
+    const {
+      email
+    } = ctx.request.query;
+
+    const [error, users] = await to(User.find({
+      email
+    }).exec());
 
     if(error) {
       return ctx.body = {
@@ -41,6 +48,25 @@ class UserController {
     ctx.body = {
       type: 'success',
       data: users
+    }
+  }
+
+  async save(ctx: Context) {
+    
+    ctx.request.body['password'] = encrypt(ctx.request.body['password']);
+
+    const [error, user] = await to(User.create(ctx.request.body));
+
+    if(error) {
+      return ctx.body = {
+        type: 'error',
+        message: error.message
+      }
+    }
+
+    ctx.body = {
+      type: 'success',
+      date: user
     }
   }
 }

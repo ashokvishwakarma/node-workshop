@@ -53,6 +53,14 @@
     */
    private _private_key: string = readFileSync(config.jwt.PRIVATE_KEY, 'utf8');
    
+
+    /**
+    * privateKey
+    * 
+    * Private Key file for JWT sign method
+    */
+   private _public_key: string = readFileSync(config.jwt.PUBLIC_KEY, 'utf8');
+
    /**
     * verify
     * 
@@ -61,7 +69,7 @@
     */
    async verify(token: string) {
      try {
-       const payload = verify(token, this._private_key, {
+       const payload = verify(token, this._public_key, {
          algorithms: ["RS256"]
        });
        if (payload) {
